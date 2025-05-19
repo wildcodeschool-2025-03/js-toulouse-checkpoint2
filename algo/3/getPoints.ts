@@ -11,8 +11,18 @@ Pour exemple, si ta fonction recevait le tableau ci-dessous en paramètre, tu de
 */
 
 function getPoints(results: string[]): number {
-  // Ton code ici !
-  return 0;
+  let total = 0;
+  for (const result of results) {
+    const [ourGoals, theirGoals] = result.split(":").map(Number);
+
+    if (ourGoals > theirGoals) {
+      total += 3;
+    } else if (ourGoals === theirGoals) {
+      total += 1;
+    }
+  }
+
+  return total;
 }
 
 export default getPoints;

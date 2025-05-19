@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Cupcake from "../components/Cupcake";
 
 /* you can use sampleCupcakes if you're stucked on step 1 */
 /* if you're fine with step 1, just ignore this ;) */
 /* ************************************************************************* */
 
-interface CupCakes {
+export interface CupCakes {
   id: number;
   accessory_id: string;
   accessory: string;
@@ -79,7 +80,9 @@ function CupcakeList() {
           .filter((accessory) => !filter || accessory.accessory_id === filter)
           .map((cupcake) => (
             <li key={cupcake.id} className="cupcake-item">
-              <Cupcake data={cupcake} />
+              <Link to={`/cupcakes/${cupcake.id}`}>
+                <Cupcake data={cupcake} />
+              </Link>
             </li>
           ))}
       </ul>

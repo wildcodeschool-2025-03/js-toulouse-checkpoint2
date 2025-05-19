@@ -11,12 +11,11 @@ Exemples :
 
 function countLetters(givenString: string, letter: string): number {
   let count = 0;
-  for (let i = 0; i < givenString.length; i++) {
-    if (givenString[i].toLowerCase() === letter.toLowerCase()) {
+  for (const char of givenString) {
+    if (char === letter) {
       count++;
     }
   }
-
   return count;
 }
 
